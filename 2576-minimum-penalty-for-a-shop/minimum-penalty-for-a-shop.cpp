@@ -1,15 +1,17 @@
 class Solution {
 public:
     int bestClosingTime(string customers) {
-        int mxscore = 0, s = 0, bt = -1;
-        for(int i = 0; i < customers.size(); i++) {
-            s += (customers[i] == 'Y') ? 1 : -1;
-            if(s > mxscore) {
-                mxscore = s;
-                bt = i;
+        int count = 0;
+        int min = count,index = 0;
+        for(int i=1;i<=customers.length();i++){
+            if(customers[i-1]=='Y') count--;
+            else count++;
+            if(count<min){
+                min = count;
+                index = i;
             }
         }
-        return bt + 1;
+        return index;
         
     }
 };
