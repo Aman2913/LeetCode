@@ -1,9 +1,13 @@
 class Solution {
 public:
     int maximizeSum(vector<int>& nums, int k) {
-        int ans = 0;
-        for(auto &i: nums)ans = max(ans,i);//FIND MAX LEMENT
-        return ans*k+(k*(k-1))/2;
+        int maxi=INT_MIN;
+        for(int i=0;i<nums.size();i++)
+        {
+            maxi=max(maxi,nums[i]);
+        }
+        int ans=maxi*k+(k*(k-1)/2);
+        return ans;
         
     }
 };
